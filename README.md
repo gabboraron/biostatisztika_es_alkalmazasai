@@ -71,3 +71,168 @@ Egy running examplet használunk a félév során
   - keresztmetszeti adatbázis
 
 gyerek születési tömege (g): `alacsoy < 2500 `
+
+## gyak 2 - R ismétlés
+https://www.w3schools.com/r/
+
+fájl: [biostat_gy_2.r](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/biostat_gy_2.r)
+
+- értékadás: `valtozo <- erteke`
+- utolsó futási eredmény visszkaérése: `.last.value`
+- függvények: `fuggveny(argumentum)`
+
+- az R egy gyengén típusos nyelv
+
+```R
+szam <- 3.3
+typeof(szam)
+str(szam)
+
+egesz <- 3
+typeof(egesz)
+egesz <- 3L
+typeof(egesz)
+str(egesz)
+
+beagyazott <- "És Ferenci mondta: 'talpra haza'"
+
+logikai <- TRUE
+str(logikai)
+
+logikai <- F
+str(logikai)
+
+szovegvektor <- c("alma", "fa")
+``` 
+
+típus tesztelése 
+```R
+is.character()
+is.numeric()
+is.integer()
+is.double()
+```
+
+típuskényszerítés
+```R
+as.character(szam)
+as.numeric("2.8")
+as.numeric(TRUE)
+as.numeric(FALSE)
+as.logical(0)
+as.logical(1)
+as.logical(100)
+as.logical(-10)
+
+miafranc <- as.logical(-3.14)
+```
+
+### adatszerkezetek
+> vektor
+> - homogén
+> - 1D
+> - minden eleme ugyanolyan típusú
+
+```R
+szamvektor <- c(2,3.5,6,-4)
+szamvektor
+str(szamvektor)
+```
+
+pl: véletlen szám generálása `rnorm(darabszam)`
+
+
+Az R-ben nincs skalár, csak egy elemű vektor.
+```R
+szam <- 5
+c(szam,4)
+
+seq(1, 13, 2)
+seq(1, 13, 1)
+
+1:13
+
+
+szamvektor <- c(elso = 3, masodik =8.3, harmadik = -4)
+szamvektor["elso"]
+```
+
+kulcsok lekérése kulcs-érték párokból álló vektorból: `names(szamvektor)`
+
+```R
+##indexelés
+szamvektor[3]
+szamvektor[c(1,4)]
+szamvektor[c(T,T,F,F,T)]
+szamvektor[c(T,F)]
+szamvektor[-3]
+
+szamvektor[2] <- 10.5
+szamvektor
+szamvektor[10] <- 20
+szamvektor
+
+szamok <- c(1,2,3,4,5)
+str(szamok)
+
+valami <- c(NA, NA, NA)
+str(valami)
+```
+
+mátrix
+```R 
+### matrixok
+szammatrix <- matrix(1:8, nc = 2)
+szammatrix
+szammatrix <- matrix(1:8, nr = 2)
+szammatrix
+szammatrix <- matrix(1:8, nc = 2, byrow = TRUE)
+szammatrix
+
+dim(szammatrix)
+nrow(szammatrix)
+ncol(szammatrix)
+
+szammatrix[1,1]
+
+colnames(szammatrix) <- c("egy", "ketto")
+rownames(szammatrix) <- c("a", "b", "c", "d")
+szammatrix
+
+# több dimenziós mátrix az array
+```
+
+dataframe
+- 2D
+- heterogén (egy oszlopon belül homogén!
+- rectangular
+```R
+adatkeret <- data.frame(elso = c(1,3.4,-3),
+                        masodik = c("a", "b", "c"),
+                        harmadik = c(T,T,F))
+adatkeret
+str(adatkeret)
+
+adatkeret[c(T,F,T), -1]
+
+adatkeret$elso
+adatkeret[,"elso"]
+
+adatkeret$elso>0.5
+adatkeret[adatkeret$elso>0.5,]
+```
+
+***a vesszőt nem szabad elfelejteni az indexeléshez!!***
+
+minta adathalmazunk
+```R
+data(birthwt, package = "MASS")
+str(birthwt)
+birthwt[str]
+colnames(birthwt)
+
+birthwt$bwt    # vektornak adja ki
+
+birthwt[[10]]  #
+birthwt["bwt"] # megőrzi a dataframeségét
+```
