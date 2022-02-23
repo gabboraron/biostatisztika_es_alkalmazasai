@@ -236,3 +236,29 @@ birthwt$bwt    # vektornak adja ki
 birthwt[[10]]  #
 birthwt["bwt"] # megőrzi a dataframeségét
 ```
+
+## EA-GY 3
+helpet `?parancsnév` vagy `??` ha nem ismerjük a parancs nevétkérhetünk
+
+függvényeknél az argumentumok  nevei elhagyhatóak, pl `rnorm(10,70,15)` és `rnorm(n=10, mean = 70, sd = 15)` ugyanaz; de az ajánlás szerint a jobb olvashatóság kredvéért érdemes megadni a neveket!
+
+ciklusok helyett `apply` fv család
+
+```R
+# lapply(elem_amire_függvényt_hívunk, függvény)
+lapply(1:3, rnorm)
+```
+
+feltételes
+```R
+birthwt$ht <- birthwt$ht == 1
+```
+
+***packagek:*** 
+```R
+install.packages("psych")
+psych::describe(birthwt)
+library(psych)
+```
+bővebben: [gy3.r](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/gy3.r)
+
