@@ -262,3 +262,50 @@ library(psych)
 ```
 bővebben: [gy3.r](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/gy3.r)
 
+- beadandót R markdownban kell csinálni
+
+- Alulsímitott a megoldás, ha túl nagy súlyt adunk annak, hogy szép legyen a görbe, azaz az intervallumokat túl nagynak választjuk.
+- túlsímitott a megoldás, ha normlisok szélessége *sávszélesség* túl kicsinek van váalsztva és hisztoigram szerű "képet" kapunk
+
+A sávszélességet a sűrűségtől tesszük függővé, hogy optimálisabb becslést adjunk a sűrűségfüggvényhez,`kde` témakörben van több róla. A magfüggvény azt is befolyásolhatja, hogy mit teszünk rá: háromszögeket, téglalapokat (egyenletes eloszlás), matematikai optimalizációs megoldások.
+
+***Ahol lehet próbáljunk magfüggvényes becslőt használni, mert jobb mint a hisztogram.***
+
+### kétváltozós elemzés
+
+
+centrális tendencia - középérték
+- átlag
+- mértani átlag <- *komplikáltabban még nem láttam az átlagot elmagyarázva*
+  a logaritmusok átlagána kexponenciáltja a mértani átlag
+  a logaritmikusan lehet gyorsan szorozni
+- trimmelt átlag / nyesett átlag `mean(birthwt2$bwt, trim = 0.05)` A `trim` optimális értéke attól is függ, hogy mennyi adatunk van az adathalmazban. A `trim` az egyik oldalra értlemezhető érték, tehát a maximumot két oldalról nézve 0,5 és nem 1!
+  A trim adatvesztés!!
+- **medián:** nagyság szerint sorbarendezett elem közül a középső *(páros sok elemnél is értlemzhető, különböző szabályokkal)* => az elemek fele kisebb nála, az elemek másik fele meg nagyobb. *Az egyenlő esete definíció kérédse, bővebben `?quantile`* A medián robosztus az outlaierekre.
+  A medián az összes többi értéket figyelmen kívűl hagyja, tehát olyan mint egy trim. 
+
+*Ha a változónál nincs értelme az összegnek akkor az átlagnak sincs!*
+
+Ha x_i -> \infinitry akkor az átlag is tart a végtelenbe!
+
+**adatgeneráló folyamat:** az a mechanizmus ami kiköpi az értékeket. Pl a mérés.
+
+- lognormális eloszlás: az az eloszlás aminek az eloszlása normális
+- *`p`*edelő pont: az elemek `p`ed része kisebb nála, és `p`ad része nagyobb.
+  kvantilis: `quantile(bwt, 0.6)`
+  kvartilis: `quantile(bwt)` azaz a negyedek
+  tizedek: `quantile(bwt, seq(0.1, 0.9,0.1))`
+  
+  
+### boxplot
+> ![what is boxplot](https://miro.medium.com/max/1400/1*2c21SkzJMf3frPXPAR_gZA.png) ![boxplot agrafikonhoz képest](https://miro.medium.com/max/1400/1*NRlqiZGQdsIyAu0KzP7LaQ.png)
+> A doboz része q1-q3 ig tart, a központi vonal a medián. Az alsó kilógás az outlaier nélküli minimum, a felső az outlaier nélküli maximum.
+>
+> A kvartilisek közti terjedelem az iqr.
+>
+> Az outlierek a kiugró értékek.
+
+bővebben: [biostat_gy_5.R](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/biostat_gy_5.R)
+
+
+
