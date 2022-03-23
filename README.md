@@ -307,5 +307,77 @@ Ha x_i -> \infinitry akkor az átlag is tart a végtelenbe!
 
 bővebben: [biostat_gy_5.R](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/biostat_gy_5.R)
 
+## EA - GY4
+**ápr 5 zh!!**
 
+a kétváltozós vizsgálat lehetővé teszi a változók közötti kapcsolattermetést is
+
+kontingencia tábla *(ez a gyakorisági sor 2D verziója)*
+```R
+table(birthwt$race, birthwt$ui)
+
+#                0  1
+#  kaukazusi    83 13
+#  afroamerikai 23  3
+#  egyeb        55 12
+```
+ahol a **gyakorisági sor** a sorösszegekből áll össze ezt az alábbi módon is megkaphatjuk:
+
+```R
+margin.table(table(birthwt$race, birthwt$ui), 1)
+```
+
+***Tehát, a két változós vizsgálatban minden benne van ami az egy dimenziósban is!***
+
+- **relatív gyakoriság**: minden számot leosztunk valamennyivel `prop.table(table(birthwt$race, birthwt$ui))`
+- **feltételes eloszlás**: mikor a táblázat minden elemét elosztjuk a sorösszeggel.
+  ```R
+  # mennyi a gyakoriság adott betegségnek rasszok mentén
+  prop.table(table(birthwt$race, birthwt$ui), 1) # 1 - sorok
+                                                 # 2 - oszlopok
+  ```
+
+A tényleges kontingencia tábla mennyire van messze attól amit a változók között kapcsolat mond?
+- ha nincs összefüggés és függetlenek lennének akkor a *gyakorisági sor*t vesszük alapul
+- ha [függetlenek](https://hu.wikipedia.org/wiki/Felt%C3%A9teles_val%C3%B3sz%C3%ADn%C5%B1s%C3%A9g) lennének akkor annak a ***relatív gyakorisága*** annak a aavalsége, hogy *valaki afroamerikai és beteg, azt úgy kapjuk meg, hogy összeszorozzuk anank a valségét, hogy afroamerikai annak a valségével, hogy beteg.*
+  ```R
+  # függetlenség esetén várt adatok amiket összevetünk a ténylegessel
+  tabe <- outer(prop.table(table(birthwt$race)),
+         prop.table(table(birthwt$ui)))
+  tabe
+  sum(tabe)
+  tabo <- tabe*nrow(birthwt)
+  
+  #tényleges adatokkal összevetve minnél messzebb van annál jelentősebb a kapcsolat
+  ```
+- az összefüggést az adja meg ***milyen messze van valami*** azaz, ehhez adott egy távolság metrika
+  Ez a [khí négyzet stat](https://hu.wikipedia.org/wiki/Kh%C3%AD-n%C3%A9gyzet_pr%C3%B3ba) 
+  ```R
+  chisq.test(birthwt$race, birthwt$ui)
+  ```
+
+- összefüggést látunk egy két dimenziós khí négyzet táblázatban *pl: mi a kapcsolat a szocio-ökonómiai státusz és a végzettség között*
+  - az origó a bal felső sarokban van
+  - a kapcsolat iránya
+    - pozitív kapcsolat a mellékátlón alakul ki
+    - negatív kapcsolat az ami a főátlón alakul ki
+  - a kapcsoalt erősségét az összefüggés mértéke adja meg
+  ![khi négyzet táblázat](https://titan.physx.u-szeged.hu/tamop411c/public_html/HU%20-%20Optikai%20alapok%20az%20ELI-ALPS%20t%C3%BCkr%C3%A9ben%20II.%20-%20PhD%20(e-learning)/m1_Dia16.3.PNG)
+
+> ### mosaic plot
+> akkor nincs kapcsolat ha az elválasztó vízszintes vonal folytatólagos
+> ![mosaic plot](https://www.jmp.com/en_us/statistics-knowledge-portal/exploratory-data-analysis/mosaic-plot/_jcr_content/par/styledcontainer_2069/par/image_781608853.img.png/1597772702665.png)
+
+```R
+plot(birthwt$lwt, birthwt$bwt)
+```
+
+Az k szerinti átlag: `xa` y szerinti átlag: `ya` ezért `(xi-xa)(yi-ya)` szorzat értéke megadja, hogy a pont pozitív vagy negatív kapcsolatot ad meg. Ebből adódoan ha ezeket összeadjuk és leosztjuk `n-1`-el akkor az egész adathalmazra kapunk egy értéket. Ez a ***kovariancia***. `cov(birthwt$lwt, birthwt$bwt)`
+- ebből leolvassuk az előjelet: a kapcsolat irányát
+- nagy a szórás: nagy a szám =>a covariencia mindig +/- két szórás között van =>  `cov(x,y)/sx*sy` ez mindig `+1` és `-1` között van, ez a ***korreláció***
+  - szintén értelmezett az előjel 
+  - van értlemezhető nagyság fogalom [-1;1] skálán, de ezt az értéket abszolút értékben vehetjük
+  - megadja mennyire illeszkednek a rájuk legjobban illeszkedő egyenesre. -> lineáris korrelációs eggyüttható => `+1` ha nagyon illeszkedik rá.
+
+bővebben: [biostatgy4.R](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/biostatgy4.R)
 
