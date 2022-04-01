@@ -381,3 +381,24 @@ Az k szerinti átlag: `xa` y szerinti átlag: `ya` ezért `(xi-xa)(yi-ya)` szorz
 
 bővebben: [biostatgy4.R](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/biostatgy4.R)
 
+minnél szorosabban illeszkednek az egyenesre annál közelebb van a korrelációs eggyüttható az egyhez, minnél nagyobb a szórás annál inkább van közel a 0-hoz. Mivel egy egyeneshez való  távolságot nézzük ezért mondhatjuk, hogy lineáris kapcsolatot mér két változó között. Konkrétan determinisztikus kapcsolatot is 0-nak láthatunk, ha a görbe nem egy egyenes! => érdemes nagy információ sűrítő metrikák használata előtt az adatokat megvizsgálni. De van olyan *(spearman féle ró és tau) ami több féle görbére méri az erősségét. *Pl: egy parabolára ha illeszkedik, akkor a lineáris korrelációja 0, és nem 1, de a spearman féle rója magas lesz.* 
+
+*pl:*
+
+![Az Anscombe-kvartett. ](https://tamas-ferenci.github.io/FerenciTamas_BevezetesABiostatisztikaba/FerenciTamas_BevezetesABiostatisztikaba_files/figure-html/anscombe-1.png)
+
+## R markdown
+- https://pandoc.org/
+
+`Knit`-re kattintva fordít!!
+
+legördülőben kiválasztjuk, hogy mire
+
+
+
+## Induktív statisztika
+https://tamas-ferenci.github.io/FerenciTamas_BevezetesABiostatisztikaba/induktiv.html
+
+
+
+
