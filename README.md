@@ -400,5 +400,17 @@ legördülőben kiválasztjuk, hogy mire
 https://tamas-ferenci.github.io/FerenciTamas_BevezetesABiostatisztikaba/induktiv.html
 
 
-
-
+> ## ZH készülés
+> ### 1. Ismertesse egy kategoriális változó vizsgálatára szolgáló grafikus módszereket!
+> Használhatunk kör és oszlopdiagrammot. Az oszlopdiagram jobb az emberi szem számára. Ha oszlopdiagramm akkor lehet Hisztogram is,illetve az alapján magfüggvényes becslés. A sűrűségfüggvényt [becsülhetjük](https://backhauszagi.web.elte.hu/gyak/sst_st4ea_k/sst_st4ea_k2.pdf) téglalapos, háromszöegs és Gauss magfüggvényel valamint Parzen Rosenblatt módszerrel is. Hasonlóan jó módszer lehet a boxplot is, amivel egyszerre láthatjuk a szórást a mediánt, a minimumot és a maximumot is.
+>
+> ### 2. Ismertesse egy folytonos változó vizsgálatára szolgáló analitikus módszerek közül a középértékre (centrális tendencia) vonatkozó mutatószámokat!
+> - medián: mikor sorbarendezzük az elemeket és kivesszük a középső elemet, így tőle jobbra és tőle balra ugyanannyi elem található. Az így kapott elemet pedig tekinthetjük egy átlagnak a nagysága alapján.
+> - trimmelt átlag: levágjuk a bizonyos, előre meghatározott szempont szempont szerint túlságosan "kilógó" elemet. Ekkor mindkét irányból ugyanannyit vágunk le!
+> - mértani átlag: a logaritmusok átlagának exponenciáltja
+>
+> ### Mit nevezzünk robusztusságnak? Mondjon példát robusztus és nem robusztus mutatóra a szóródást mérő mutatószámok közül!
+> robosztus pl a medián ami figyelmen kívűl hagjya az outliereket, így azokra nézve robosztus. Általánosságban elmondahtó, hogy robosztussgának ezt nevezhetjük, ha minnél több tulajdonságot, paramétert figyelmen kívűl hagyva is helyesen működik az adot eljárás. Nem robosztus például épp ezért az átlag avagy a szmtani közép az outlierekre, mivel bele kalkulálja azokat is  a végső értékbe.
+> 
+> ### Mit mér a szokásos korrelációs együttható? Hasonlítsa egymáshoz a kovarianciát és a korrelációt a gyakorlat szempontjából!
+> A covareiencia egy pont távolságát adja meg khí nétgyzettel, két változó szorzatának várható érétkével. Ha ezeket összeadjuk és leosztjuk `n-1`el akkor a szórások között kapjuk meg az érétket. Ha ezt transzformáljuk [-1,1] intervallumra akkor az a korreláció.
