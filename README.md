@@ -414,3 +414,39 @@ https://tamas-ferenci.github.io/FerenciTamas_BevezetesABiostatisztikaba/induktiv
 > 
 > ### Mit mér a szokásos korrelációs együttható? Hasonlítsa egymáshoz a kovarianciát és a korrelációt a gyakorlat szempontjából!
 > A covareiencia egy pont távolságát adja meg khí nétgyzettel, két változó szorzatának várható érétkével. Ha ezeket összeadjuk és leosztjuk `n-1`el akkor a szórások között kapjuk meg az érétket. Ha ezt transzformáljuk [-1,1] intervallumra akkor az a korreláció.
+
+
+## induktív statisztika
+törődünk a mintavétellel
+
+hogyan tudok a minta kis részhalmazából a teljes egészre következtetni?
+
+sokaság átlaga ha érdekel minket.
+
+Csak becsléseket tudunk mondani, amivel nagy hiba és bizonytalanság van a végeredményben.
+
+- Θ a minta sokasága. A sokaságot leírja a szórás és az átlag.
+
+A sokaság eloszlása normális, ekkor a normális eloszlás.
+
+A sűrűségfüggvény becsléssel, hisztogrammal egy nempraméteres sűrűségbecslő. 
+
+`X ~ *N*(μ, ρ 0)` normális eloszlást küövető sokaság.
+minta nagyságot minidg `n`el jelöljük: X1, X2, ..., Xn (**f**üggetlen **a**zonos **e**loszlású)
+
+`θ^ = f(X1, X2, ..., Xn)` becslőfüggvény
+
+Ha egy konkrét mintánk van akkor nem tudjuk megvizsgálni azokat a tulajdonságait, amivel azt nézzük, hogy mennyire van közel a valósághoz. Ha viszont valváltozókkal vesszem (újra és újra veszem az értéket és kiszámolom rá az átlagot) ez a mintavételi eloszlsás. Ennek a szórása nem nulla. 
+
+Ez mintáról-mintára változik!
+
+Ha egy becslőfüggvény várható értéke (eloszlás) megegyezik a mintavétel várható étékével akkor torzítatlannak tekintjük. Ha különbség van akkor a különbség értéke adja meg a torzítás mértékét (BIAS).
+
+Két torzítetlen becslő közül az a hatásosabb amelyiknek kisebb a mitavételi szórásnégyzete.
+
+Egy becslő standard hibája a mintavételi szórás eloszlása `sd(simDes)`
+
+![minden torzítatlan becslőre megy]()
+bővebben: [gyak6.r](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/gy6.R)
+
+
