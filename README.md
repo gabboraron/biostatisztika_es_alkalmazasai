@@ -1,5 +1,6 @@
 # Biostatisztika és alkalmazásai
 - [Ferenci Tamás YouTube](https://www.youtube.com/c/FerenciTam%C3%A1s/videos)
+- [Ferenci Tamás - Bevezetés a biostatisztikába](https://tamas-ferenci.github.io/FerenciTamas_BevezetesABiostatisztikaba/deskriptiv.html#deskriptivaltalaban)
 - [Solymosi Norbert -  R - Erre könyv - pdf](https://cran.r-project.org/doc/contrib/Solymosi-Rjegyzet.pdf)
 
 Számonkérések:
