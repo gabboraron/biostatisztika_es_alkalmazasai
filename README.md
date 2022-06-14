@@ -449,4 +449,95 @@ Egy becslő standard hibája a mintavételi szórás eloszlása `sd(simDes)`
 ![minden torzítatlan becslőre megy]()
 bővebben: [gyak6.r](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/gy6.R)
 
+# biostat gy 7 - pontbecslés
+> induktív következtető statisztika - ismétlés
+>
+> a sokaság minden elemét nem tudjuk megfigyelni technikai okokból ezért a mintából hogyan tudunk következtetni a teljes egészre.
+>
+> ***bármit is csinálunk akkor se fogunk tudni biztosat mondani a sokaságról***, de elég pontosat nem tudunk mondani soha, és amit mondunk minidg függ amintától
+>
+> hiába adott rögzített változó a sokaság mértéke és hiába is rögzített a mintavétel mégis mintáról mintára  változni fog, hogy mit adhatunk be
+> 
+> a becslő függvény tulajdonságaitól szintén függ az eredményünk
+>
+> - a nagyobb *szórás* kisebb *hatásosság*ot eredményez	
+
+***ha torzítatlan egy becslő akkkor az véges mintás, minden véges mintára működik***
+
+- a minta változtatásával reménykedhetünk abban, hogy minden szélsőértékhez ellentétes sézlsőérték is tartozik majd.
+- a mintavételi szórás eloszlása a standard hiba
+- a kérdés hogyan függ a stanrd hiba a nagyságtól
+
+![\lambda_{1}, \lambda_{2},..., \lambda_{n}  - \mathit{N}(\mu , \sigma^{2})](https://latex.codecogs.com/gif.latex?\lambda_{1}, \lambda_{2},..., \lambda_{n}  - \mathit{N}(\mu , \sigma^{2}))
+
+![\bar{X} = \frac{1}{n} \sum_{i=1}^{n}X_{i}](https://latex.codecogs.com/gif.latex?\bar{X} = \frac{1}{n} \sum_{i=1}^{n}X_{i})
+
+![D^{2}(\bar{x}) = D^{2}(\frac{1}{n} \sum_{i=1}^{n}X_{i}) = \frac{1}{n^2} D^2 \sum_{i=1}^{n}X_{i} = \frac{1}{n^2} \sum_{i=1}^{n}D^2X_{i} = \frac{\sigma_0^2}{n} \blacksquare](https://latex.codecogs.com/gif.latex?D^{2}(\bar{x}) = D^{2}(\frac{1}{n} \sum_{i=1}^{n}X_{i}) = \frac{1}{n^2} D^2 \sum_{i=1}^{n}X_{i} = \frac{1}{n^2} \sum_{i=1}^{n}D^2X_{i} = \frac{\sigma_0^2}{n} \blacksquare)
+
+![bar X ](https://latex.codecogs.com/gif.latex?\bar{X}) mintavételi alak eloszlása = \mathit{N}(\mu,\sigma^{2}))
+Ez a nagymintás tulajdonság.
+Ha egy becslő függvény torzított de a torzítás mértéke 0-ba tart akkor a függvény aszimptotikusan torzítatlan. 
+
+A konzisztencia szerint ha végtelemben vagyunk akkor megszűnik az induktív statisztika problémája
+
+csak akkor mondom  konzisztensnek, ha a határértéke 0 
+
+nem is segít a mediánon ha növeljük a mintanagyságot
+[centrális határ eloszlás tétel](centrális határ eloszlás tétel)
+asziptotikus határ eloszlás ha lognormális a háttér akkor véges mintán nem jó eredményt ad 
+
+## Cramer-Rao tétel
+mi az elvi minimuma egy adott szituációban egy becslő mintavételi szórásának
+
+*James Stein-becslő*
+
+Van olyan szituáció ahol létezik hatásos becslő, de annak a varianciája is magasabb mint a Cramer-Rao alsó korlátot.
+
+A Cramer-Raoban a Fisher információ az ami a jellemzőt adja.
+
+A mintaátlag felveszi a Cramer-Rao alsó korlátot. Nem létezik olyan becslő ami torzítatlan és kisebb a varianciája mint a mintaátlagnak.
+
+ha a mintából kiszámoljuk ami a sokaság lesz az még torzítatlan se lesz
+
+véges mintán torzított de aszimptotikusan torzítatlan becslő a minta variancia 
+
+a minta variancia várható értéke mindig az `n/(n-1)`szerese lesz a korrigált mintavariancia: ![frac{1}{n-1}\sum(X_i-\bar{X})^2](https://latex.codecogs.com/gif.latex?\frac{1}{n-1}\sum(X_i-\bar{X})^2)
+
+Az a cél, hogy megmondjuk, hogy mik azok a valódi értékek amire igaz az, hogy ha az lenne a valóság akkor az kénylmesen beszóródhatna abba amit akpunk is:
+
+![\mathit{\bar{X}} = \mu (\mu , \frac{\sigma_0^{2}}{n})](https://latex.codecogs.com/gif.latex?\mathit{\bar{X}} = \mu (\mu , \frac{\sigma_0^{2}}{n}))
+
+![\bar{X}-\mu = \mu(0,  \frac{\sigma_0^{2}}{n}) = \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} = \mu(0,1)](https://latex.codecogs.com/gif.latex?\bar{X}-\mu = \mu(0,  \frac{\sigma_0^{2}}{n}) = \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} = \mu(0,1))
+
+![\mathbb{P}(-z<\frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}}<z) = \phi (z) - \phi(-z) = \phi(z) - [1-\phi(z)] = 2\phi(z)-1 = 1-\alpha => z=\phi^{-1}(1-\frac{\alpha}{2}) => \mathbb{P}(-z_{1-\frac{\alpha}{2}} < \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} <z_{1-\frac{\alpha}{2}}) = 1-\alpha](https://latex.codecogs.com/gif.latex?\mathbb{P}(-z<\frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}}<z) = \phi (z) - \phi(-z) = \phi(z) - [1-\phi(z)] = 2\phi(z)-1 = 1-\alpha => z=\phi^{-1}(1-\frac{\alpha}{2}) => \mathbb{P}(-z_{1-\frac{\alpha}{2}} < \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} <z_{1-\frac{\alpha}{2}}) = 1-\alpha)
+
+![\mathbb{P}(-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X}-\mu <z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha](https://latex.codecogs.com/gif.latex?\mathbb{P}(-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X}-\mu <z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha)
+
+![\mathbb{P}(\mu-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X} <\mu + z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha](https://latex.codecogs.com/gif.latex?\mathbb{P}(\mu-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X} <\mu + z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha)
+
+![\mu \pm t_{\mu - 1,96}\frac{\sigma_0}{\sqrt{n}}](https://latex.codecogs.com/gif.latex?\mu \pm t_{\mu - 1,96}\frac{\sigma_0}{\sqrt{n}})
+
+![CI = \bar{X} \pm Z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}}](https://latex.codecogs.com/gif.latex?CI = \bar{X} \pm Z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}})
+ez a konfidencia intervallum. *pl:a 95%os konfidencia intervallum az ha nagyon sok mintát vennék akkor az esetek 95%-ban tartalmazná a valódi értéket.*
+
+## hipotézis vizsgálat
+*pl: egy adott pénzérme cinkelt-e? - feldobjuk 20-szor és mindig fej, cinkelt-e?*
+
+binomiéális eloszlást a `binom` függvények adják R-ben
+
+a binomiális eloszlás garantálja, hogy kb 5% valséggel tévedhetünk mikor azt adhatjuk meg, hogy szabályos-e a pénzérme.
+
+biostat megfeleltetés:
+- pénzérme szabályos - hatástalan a gyógyszer
+
+nullhipotézis: a feltételezésem az adott eseményről:
+
+elfogadom a nullhipotézist hatástalannak minősítem a gyógyszert
+- elsőfajú hiba: hatástalan gyógyszerre mondom azt, hogy hatásos
+- másodfajú hiba: mikor hatásosnak mondom, hogy 
+
+az egyetlen módszer ami mindkettőn javít az, hogy növeljük a a mintát
+
+egy vizsgálat ereje a hatásossága, ha 80% az ereje akkor 80% valséggel hat, de nem mondtuk mennyire.
+
 
