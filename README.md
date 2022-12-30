@@ -12,17 +12,17 @@ Számonkérések:
 
 ## EA1 - R ismétlés - Statisztika alapfogalmai áttekintés
 ### Statisztika alapfogalmai áttekintés
-- **valségszámítás -> statisztika ->alkalmazott stat ágak**
-- **bioinformatika:** inkább stámítástechnikai kérdések, nagy adatbázisokon hatékony algoritmikus megoldások
+- **valségszámítás -> statisztika -> alkalmazott stat ágak**
+- **bioinformatika:** inkább számítástechnikai kérdések, nagy adatbázisokon hatékony algoritmikus megoldások
 - **biomatematika:** inkább nem statisztikai elsősorban analízisbeli modellezési eszközök, diffegyenletek haszálata
 
 **milyen alapokra van szükség:**
-- valségsázmítás, linalg
+- valségszámítás, linalg
 - mat stat
 - orvosi ismeretek
 
 **stat programcsomagok:**
-- SAS - gyyógyszeripar kedveli
+- SAS - gyógyszeripar kedveli
 - SPSS - Általános célú stat programcsomag szociológusoknak
 - R - kalsszikus akadémiai programcsomag
 
@@ -34,26 +34,26 @@ Számonkérések:
 
 **definíciók:**
 - **véges sokaság - populáció**: egzakt halmaz amire a kérdésünk irányul: *mennyi jelen kurzus hallgatóinak átlagos testtömege?*
-  - **fiktív végtelen sokaság**: nem névszerint felsorolható, de körülírható jellemzőkkel rendlekező halmaz, `eloszlás`sal megadott érték
+  - **fiktív végtelen sokaság**: nem névszerint felsorolható, de körülírható jellemzőkkel rendlekező halmaz, `eloszlás`al megadott érték
 - **megfigelési egység**: a populáció elemei
-- **változ/ismérv**: a változó értékének meghatározása egy adott sokasági elemre: megfigyelés <- az összes eelem nagyon ritkán megfigyelhető
-- **mintavételes helyzet**: általában nem tudjuk a teljes sokaságot megfigyleni, de a mgefigylehető része a **minta**
-- **induktív statisztika**: hogyan tudnk kövekteztetni az egész sokaságra? *pl: hogyan mondható meg 100 szám átlaga ha csak 99-et ismerek?**
+- **változó/ismérv**: a változó értékének meghatározása egy adott sokasági elemre: megfigyelés <- az összes elem nagyon ritkán megfigyelhető
+- **mintavételes helyzet**: általában *nem* tudjuk a teljes sokaságot megfigyleni, de a mgefigylehető része a **minta**
+- **induktív statisztika**: hogyan tudunk következtetni az egész sokaságra? *pl: hogyan mondható meg 100 szám átlaga ha csak 99-et ismerek?**
 - **deskriptív statisztika**: a statisztika azon fejezete ami nem törődik a mintavétellel
-- **proxy változók**: *pl: mekkora a szocio-ökonomia értéke valakinek - kereset, tásradalmi státusz, stb-?
+- **proxy változók**: *pl: mekkora a szocio-ökonomia értéke valakinek - kereset, társadalmi státusz, stb-?
 
 #### mérési skálák/adatok jellemzői:
 > mi az a művelet amit érdemes elvégezni?
 - Stevens 1946:
   - minőségi változó:
     - **nominális skála:** egy ismérv nominális skálán van mérve, ha két megfigyelési egységgel nem ugyanazt az értéket veszik fel. *pl: szemszínek: egyik barna, másik kék, akkor nem adható hozzá átlág, stb...*
-    - **ordinális skála:** a nominális + értlemezett, hogy melyik nagyobb. *pl: egy közgáz bsc és egy orvosi MD foknál egyik nagyobb, de semmi köze egymáshoz*
+    - **ordinális skála:** a nominális + értelmezett, hogy ***melyik nagyobb*** *pl: egy közgáz bsc és egy orvosi MD foknál egyik nagyobb, de semmi köze egymáshoz*
   - mennyiségi változó:  
-    - **intervallum skála:** a különbségnek is van értelme. *pl: Aladár testőmérséklete 40, Béla 38: egyik nagyobb - másik kisebb; kivonhatóak egymásból; de Aadár hőmérsékletének semmi köze Béláéhoz*
-    - **arányskála:** van értelme az osztásnak is. *pl: Aladár 50 kg, Béla 80 kg, akkor egyik nagyobb, A és B nek nincs köze egymáshoz, de mondható, hogy B x %-al nagyobb*
+    - **intervallum skála:** a ***különbségnek*** is van értelme. *pl: Aladár testhőmérséklete 40, Béla 38: egyik nagyobb - másik kisebb; kivonhatóak egymásból; de Aladár hőmérsékletének semmi köze Béláéhoz*
+    - **arányskála:** van értelme az ***osztásnak*** is. *pl: Aladár 50 kg, Béla 80 kg, akkor egyik nagyobb, A és B nek nincs köze egymáshoz, de mondható, hogy B x %-al nagyobb*
 
 - **Diszkrét változó:** a kimenetek száma egy diszkrét halmaz: véges/megszámlálhatóan végtelen, *pl szemszín* a nominális és ordinális változók diszkrétek
-- **folytonos változó:** kontinuum sázmosságú, *pl: testhő*, a mennyiségi változók folytonosak
+- **folytonos változó:** kontinuum számosságú, *pl: testhő*, a mennyiségi változók folytonosak
 
 ***kivétel:** hányszor volt infarktusod?*
 
@@ -61,14 +61,14 @@ Számonkérések:
   - **keresztmetszeti**: egy időpontban mértünk, nincs utánkövetés 
   - **longitudinális / hosszmetszeti / panel adat**: egymás után többször mértük le, az alanyoknak időbeli követése is van; cohort; eset kontrol;
 
-- prevalencia: hányan vannak? stock jellegű
-- incidnecia: hány új valmai van? flow jellegű
+- **prevalencia**: hányan vannak? - *stock jellegű*
+- **incidencia**: hány új valami van? - *flow jellegű*
 
 
 ## R ismétlés
-Egy running examplet használunk a félév során
+Egy running example-t használunk a félév során
 
-- Birth Weight adatbázis (1986): hogyan prediktálható az újszükött születési tömege? 
+- Birth Weight adatbázis (1986): hogyan prediktálható az újszülött születési tömege? 
   - keresztmetszeti adatbázis
 
 gyerek születési tömege (g): `alacsoy < 2500 `
@@ -266,7 +266,7 @@ bővebben: [gy3.r](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/
 - beadandót R markdownban kell csinálni
 
 - Alulsímitott a megoldás, ha túl nagy súlyt adunk annak, hogy szép legyen a görbe, azaz az intervallumokat túl nagynak választjuk.
-- túlsímitott a megoldás, ha normlisok szélessége *sávszélesség* túl kicsinek van váalsztva és hisztoigram szerű "képet" kapunk
+- túlsímított a megoldás, ha normlisok szélessége *sávszélesség* túl kicsinek van választva és hisztogram szerű "képet" kapunk
 
 A sávszélességet a sűrűségtől tesszük függővé, hogy optimálisabb becslést adjunk a sűrűségfüggvényhez,`kde` témakörben van több róla. A magfüggvény azt is befolyásolhatja, hogy mit teszünk rá: háromszögeket, téglalapokat (egyenletes eloszlás), matematikai optimalizációs megoldások.
 
@@ -274,11 +274,10 @@ A sávszélességet a sűrűségtől tesszük függővé, hogy optimálisabb bec
 
 ### kétváltozós elemzés
 
-
 centrális tendencia - középérték
 - átlag
 - mértani átlag <- *komplikáltabban még nem láttam az átlagot elmagyarázva*
-  a logaritmusok átlagána kexponenciáltja a mértani átlag
+  a logaritmusok átlagának exponenciáltja a mértani átlag
   a logaritmikusan lehet gyorsan szorozni
 - trimmelt átlag / nyesett átlag `mean(birthwt2$bwt, trim = 0.05)` A `trim` optimális értéke attól is függ, hogy mennyi adatunk van az adathalmazban. A `trim` az egyik oldalra értlemezhető érték, tehát a maximumot két oldalról nézve 0,5 és nem 1!
   A trim adatvesztés!!
@@ -375,14 +374,14 @@ plot(birthwt$lwt, birthwt$bwt)
 
 Az k szerinti átlag: `xa` y szerinti átlag: `ya` ezért `(xi-xa)(yi-ya)` szorzat értéke megadja, hogy a pont pozitív vagy negatív kapcsolatot ad meg. Ebből adódoan ha ezeket összeadjuk és leosztjuk `n-1`-el akkor az egész adathalmazra kapunk egy értéket. Ez a ***kovariancia***. `cov(birthwt$lwt, birthwt$bwt)`
 - ebből leolvassuk az előjelet: a kapcsolat irányát
-- nagy a szórás: nagy a szám =>a covariencia mindig +/- két szórás között van =>  `cov(x,y)/sx*sy` ez mindig `+1` és `-1` között van, ez a ***korreláció***
+- nagy a szórás: nagy a szám => a covariencia mindig +/- két szórás között van =>  `cov(x,y)/sx*sy` ez mindig `+1` és `-1` között van, ez a ***korreláció***
   - szintén értelmezett az előjel 
   - van értlemezhető nagyság fogalom [-1;1] skálán, de ezt az értéket abszolút értékben vehetjük
   - megadja mennyire illeszkednek a rájuk legjobban illeszkedő egyenesre. -> lineáris korrelációs eggyüttható => `+1` ha nagyon illeszkedik rá.
 
 bővebben: [biostatgy4.R](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/biostatgy4.R)
 
-minnél szorosabban illeszkednek az egyenesre annál közelebb van a korrelációs eggyüttható az egyhez, minnél nagyobb a szórás annál inkább van közel a 0-hoz. Mivel egy egyeneshez való  távolságot nézzük ezért mondhatjuk, hogy lineáris kapcsolatot mér két változó között. Konkrétan determinisztikus kapcsolatot is 0-nak láthatunk, ha a görbe nem egy egyenes! => érdemes nagy információ sűrítő metrikák használata előtt az adatokat megvizsgálni. De van olyan *(spearman féle ró és tau) ami több féle görbére méri az erősségét. *Pl: egy parabolára ha illeszkedik, akkor a lineáris korrelációja 0, és nem 1, de a spearman féle rója magas lesz.* 
+minnél szorosabban illeszkednek az egyenesre annál közelebb van a korrelációs eggyüttható az egyhez, minnél nagyobb a szórás annál inkább van közel a 0-hoz. Mivel egy egyeneshez való  távolságot nézzük ezért mondhatjuk, hogy lineáris kapcsolatot mér két változó között. Konkrétan determinisztikus kapcsolatot is 0-nak láthatunk, ha a görbe nem egy egyenes! => érdemes nagy információ sűrítő metrikák használata előtt az adatokat megvizsgálni. De van olyan *(spearman féle ró és tau)* ami több féle görbére méri az erősségét. *Pl: egy parabolára ha illeszkedik, akkor a lineáris korrelációja 0, és nem 1, de a spearman féle rója magas lesz.* 
 
 *pl:*
 
