@@ -442,12 +442,13 @@ Ez mintáról-mintára változik!
 
 Ha egy becslőfüggvény várható értéke (eloszlás) megegyezik a mintavétel várható étékével akkor torzítatlannak tekintjük. Ha különbség van akkor a különbség értéke adja meg a torzítás mértékét (BIAS).
 
-Két torzítetlen becslő közül az a hatásosabb amelyiknek kisebb a mitavételi szórásnégyzete.
+Két torzítatlen becslő közül az a hatásosabb amelyiknek kisebb a mitavételi szórásnégyzete.
 
 Egy becslő standard hibája a mintavételi szórás eloszlása `sd(simDes)`
 
-![minden torzítatlan becslőre megy]()
-bővebben: [gyak6.r](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/gy6.R)
+-minden torzítatlan becslőre megy
+
+*bővebben: [gyak6.r](https://github.com/gabboraron/biostatisztika_es_alkalmazasai/blob/main/gy6.R)*
 
 # biostat gy 7 - pontbecslés
 > induktív következtető statisztika - ismétlés
@@ -468,13 +469,13 @@ bővebben: [gyak6.r](https://github.com/gabboraron/biostatisztika_es_alkalmazasa
 - a mintavételi szórás eloszlása a standard hiba
 - a kérdés hogyan függ a stanrd hiba a nagyságtól
 
-![\lambda_{1}, \lambda_{2},..., \lambda_{n}  - \mathit{N}(\mu , \sigma^{2})](https://latex.codecogs.com/gif.latex?\lambda_{1}, \lambda_{2},..., \lambda_{n}  - \mathit{N}(\mu , \sigma^{2}))
+$$\lambda_{1}, \lambda_{2},..., \lambda_{n}  - \mathit{N}(\mu , \sigma^{2})$$
 
-![\bar{X} = \frac{1}{n} \sum_{i=1}^{n}X_{i}](https://latex.codecogs.com/gif.latex?\bar{X} = \frac{1}{n} \sum_{i=1}^{n}X_{i})
+$$[\bar{X} = \frac{1}{n} \sum_{i=1}^{n}X_{i}$$
 
-![D^{2}(\bar{x}) = D^{2}(\frac{1}{n} \sum_{i=1}^{n}X_{i}) = \frac{1}{n^2} D^2 \sum_{i=1}^{n}X_{i} = \frac{1}{n^2} \sum_{i=1}^{n}D^2X_{i} = \frac{\sigma_0^2}{n} \blacksquare](https://latex.codecogs.com/gif.latex?D^{2}(\bar{x}) = D^{2}(\frac{1}{n} \sum_{i=1}^{n}X_{i}) = \frac{1}{n^2} D^2 \sum_{i=1}^{n}X_{i} = \frac{1}{n^2} \sum_{i=1}^{n}D^2X_{i} = \frac{\sigma_0^2}{n} \blacksquare)
+$$D^{2}(\bar{x}) = D^{2}(\frac{1}{n} \sum_{i=1}^{n}X_{i}) = \frac{1}{n^2} D^2 \sum_{i=1}^{n}X_{i} = \frac{1}{n^2} \sum_{i=1}^{n}D^2X_{i} = \frac{\sigma_0^2}{n} \blacksquare$$
 
-![bar X ](https://latex.codecogs.com/gif.latex?\bar{X}) mintavételi alak eloszlása = \mathit{N}(\mu,\sigma^{2}))
+$\bar{X}$ mintavételi alak eloszlása = $\mathit{N}(\mu,\sigma^{2})$
 Ez a nagymintás tulajdonság.
 Ha egy becslő függvény torzított de a torzítás mértéke 0-ba tart akkor a függvény aszimptotikusan torzítatlan. 
 
@@ -483,7 +484,7 @@ A konzisztencia szerint ha végtelemben vagyunk akkor megszűnik az induktív st
 csak akkor mondom  konzisztensnek, ha a határértéke 0 
 
 nem is segít a mediánon ha növeljük a mintanagyságot
-[centrális határ eloszlás tétel](centrális határ eloszlás tétel)
+[centrális határ eloszlás tétel](https://hu.wikipedia.org/wiki/Centr%C3%A1lis_hat%C3%A1reloszl%C3%A1s-t%C3%A9tel)
 asziptotikus határ eloszlás ha lognormális a háttér akkor véges mintán nem jó eredményt ad 
 
 ## Cramer-Rao tétel
@@ -501,23 +502,24 @@ ha a mintából kiszámoljuk ami a sokaság lesz az még torzítatlan se lesz
 
 véges mintán torzított de aszimptotikusan torzítatlan becslő a minta variancia 
 
-a minta variancia várható értéke mindig az `n/(n-1)`szerese lesz a korrigált mintavariancia: ![frac{1}{n-1}\sum(X_i-\bar{X})^2](https://latex.codecogs.com/gif.latex?\frac{1}{n-1}\sum(X_i-\bar{X})^2)
+a minta variancia várható értéke mindig az `n/(n-1)`szerese lesz a korrigált mintavariancia: $frac{1}{n-1}\sum(X_i-\bar{X})^2$
 
 Az a cél, hogy megmondjuk, hogy mik azok a valódi értékek amire igaz az, hogy ha az lenne a valóság akkor az kénylmesen beszóródhatna abba amit akpunk is:
 
-![\mathit{\bar{X}} = \mu (\mu , \frac{\sigma_0^{2}}{n})](https://latex.codecogs.com/gif.latex?\mathit{\bar{X}} = \mu (\mu , \frac{\sigma_0^{2}}{n}))
+ $mathit{\bar{X}} = \mu (\mu , \frac{\sigma_0^{2}}{n})$
 
-![\bar{X}-\mu = \mu(0,  \frac{\sigma_0^{2}}{n}) = \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} = \mu(0,1)](https://latex.codecogs.com/gif.latex?\bar{X}-\mu = \mu(0,  \frac{\sigma_0^{2}}{n}) = \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} = \mu(0,1))
+$$\bar{X}-\mu = \mu(0,  \frac{\sigma_0^{2}}{n}) = \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} = \mu(0,1)$$
 
-![\mathbb{P}(-z<\frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}}<z) = \phi (z) - \phi(-z) = \phi(z) - [1-\phi(z)] = 2\phi(z)-1 = 1-\alpha => z=\phi^{-1}(1-\frac{\alpha}{2}) => \mathbb{P}(-z_{1-\frac{\alpha}{2}} < \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} <z_{1-\frac{\alpha}{2}}) = 1-\alpha](https://latex.codecogs.com/gif.latex?\mathbb{P}(-z<\frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}}<z) = \phi (z) - \phi(-z) = \phi(z) - [1-\phi(z)] = 2\phi(z)-1 = 1-\alpha => z=\phi^{-1}(1-\frac{\alpha}{2}) => \mathbb{P}(-z_{1-\frac{\alpha}{2}} < \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} <z_{1-\frac{\alpha}{2}}) = 1-\alpha)
+$$\mathbb{P}(-z<\frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}}<z) = \phi (z) - \phi(-z) = \phi(z) - [1-\phi(z)] = 2\phi(z)-1 = 1-\alpha \Rightarrow z=\phi^{-1}(1-\frac{\alpha}{2}) => \mathbb{P}(-z_{1-\frac{\alpha}{2}} < \frac{\bar{X}-\mu}{\sqrt{\sigma_0^2/n}} <z_{1-\frac{\alpha}{2}}) = 1-\alpha$$
 
-![\mathbb{P}(-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X}-\mu <z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha](https://latex.codecogs.com/gif.latex?\mathbb{P}(-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X}-\mu <z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha)
+$$\mathbb{P}(-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X}-\mu <z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha $$
 
-![\mathbb{P}(\mu-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X} <\mu + z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha](https://latex.codecogs.com/gif.latex?\mathbb{P}(\mu-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X} <\mu + z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha)
+$$\mathbb{P}(\mu-z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} < \bar{X} <\mu + z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}} ) = 1-\alpha$$
 
-![\mu \pm t_{\mu - 1,96}\frac{\sigma_0}{\sqrt{n}}](https://latex.codecogs.com/gif.latex?\mu \pm t_{\mu - 1,96}\frac{\sigma_0}{\sqrt{n}})
+$$\mu \pm t_{\mu - 1,96}\frac{\sigma_0}{\sqrt{n}}$$
 
-![CI = \bar{X} \pm Z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}}](https://latex.codecogs.com/gif.latex?CI = \bar{X} \pm Z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}})
+$$CI = \bar{X} \pm Z_{1-\frac{\alpha}{2}}\frac{\sigma_0}{\sqrt{n}}$$
+
 ez a konfidencia intervallum. *pl:a 95%os konfidencia intervallum az ha nagyon sok mintát vennék akkor az esetek 95%-ban tartalmazná a valódi értéket.*
 
 ## hipotézis vizsgálat
