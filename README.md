@@ -323,6 +323,8 @@ table(birthwt$race, birthwt$ui)
 #  afroamerikai 23  3
 #  egyeb        55 12
 ```
+bővebben: https://hu.wikipedia.org/wiki/Kontingenciat%C3%A1bl%C3%A1zat
+
 ahol a **gyakorisági sor** a sorösszegekből áll össze ezt az alábbi módon is megkaphatjuk:
 
 ```R
