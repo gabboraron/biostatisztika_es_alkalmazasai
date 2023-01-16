@@ -272,6 +272,8 @@ A sávszélességet a sűrűségtől tesszük függővé, hogy optimálisabb bec
 
 ***Ahol lehet próbáljunk magfüggvényes becslőt használni, mert jobb mint a hisztogram.***
 
+bővebben a magfüggvényes becslésről: https://gyires.inf.unideb.hu/KMITT/a04/ch09s03.html
+
 ### kétváltozós elemzés
 
 centrális tendencia - középérték
